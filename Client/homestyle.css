@@ -1,0 +1,217 @@
+body,html{
+    height: 100%;
+}
+
+/* remove outer padding */
+.container-main .row{
+    padding: 0px;
+    margin: 0px;
+}
+
+/*Remove rounded coners*/
+
+nav.sidebar.navbar {
+    border-radius: 0px;
+}
+
+nav.sidebar, .container-main{
+    -webkit-transition: margin 200ms ease-out;
+    -moz-transition: margin 200ms ease-out;
+    -o-transition: margin 200ms ease-out;
+    transition: margin 200ms ease-out;
+}
+
+/* Icons */
+.menu-icon {
+    font-size: 20px;
+}
+
+/* Add gap to nav and right windows.*/
+/*.container-main{
+    padding: 10px 10px 0 10px;
+}*/
+
+/* Colors */
+.navbar-m2p {
+    background-color: #00464f;
+    border-color: #00464f;
+}
+.navbar-m2p span, .navbar-m2p a {
+    color: #FFFFFF;
+}
+.active .dropdown-toggle {
+    background-color: rgba(126, 169, 39, 0.3);
+    border-color: rgba(126, 169, 39, 0.3);
+}
+.nav .open > a {
+    background-color: rgba(126, 169, 39, 0.3);
+    border-color: rgba(126, 169, 39, 0.3);
+}
+.nav li > a:hover, .nav .open > a:hover,
+.nav li > a:focus, .nav .open > a:focus,
+.nav li > a:active, .nav .open > a:active {
+    background-color: rgba(126, 169, 39, 0.3);
+}
+.nav .open ul > li {
+    background-color: rgba(126, 169, 39, 0.4)
+}
+.navbar-m2p .navbar-nav .open .dropdown-menu>li>a {
+    color: #FFFFFF;
+    padding: 10px;
+}
+/* borda menu active */
+.navbar-m2p .navbar-nav .active a {
+    margin-left: -1px;
+    border-left: 5px solid #7ea927;
+}
+/* Hamburger */
+.navbar-toggle {
+    background-color: transparent;
+    border: 1px solid rgba(126, 169, 39, 0.4);
+}
+.navbar-toggle .icon-bar,
+.navbar-toggle .icon-bar + .icon-bar {
+    background-color: #7ea927;
+}
+
+nav:hover .forAnimate{
+    opacity: 1;
+}
+
+.navbar-m2p .dropdown-menu {
+    padding: 0px;
+}
+
+.nav li.separator {
+    padding: 10px 15px;
+    text-transform: uppercase;
+    background-color: rgba(0, 0, 39, 0.2);
+    color: rgba(208, 208, 207, 0.4);
+}
+
+/* .....NavBar: Icon only with coloring/layout.....*/
+
+/*small/medium side display*/
+@media (min-width: 768px) {
+
+    /*Allow main to be next to Nav*/
+    .container-main{
+        position: absolute;
+        width: calc(100% - 40px); /*keeps 100% minus nav size*/
+        margin-left: 40px;
+        float: right;
+    }
+
+    /*lets nav bar to be showed on mouseover*/
+    nav.sidebar:hover + .container-main{
+        margin-left: 300px;
+    }
+
+    /*Center Brand*/
+    nav.sidebar.navbar.sidebar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+        margin-left: 0px;
+    }
+    /*Center Brand*/
+    nav.sidebar .navbar-brand, nav.sidebar .navbar-header{
+        text-align: center;
+        width: 100%;
+        margin-left: 0px;
+        font-size: 25px;
+        line-height: 27px;
+    }
+
+    /*Center Icons*/
+    nav.sidebar a{
+        padding-right: 13px;
+    }
+
+    /* Colors/style dropdown box*/
+    nav.sidebar .navbar-nav .open .dropdown-menu {
+        position: static;
+        float: none;
+        width: auto;
+        margin-top: 0;
+        background-color: transparent;
+        border: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    /*allows nav box to use 100% width*/
+    nav.sidebar .navbar-collapse, nav.sidebar .container-fluid{
+        padding: 0 0px 0 0px;
+    }
+
+    /*gives sidebar width/height*/
+    nav.sidebar{
+        width: 300px;
+        height: 100%;
+        margin-left: -260px;
+        float: left;
+        z-index: 8000;
+        margin-bottom: 0px;
+    }
+
+    /*give sidebar 100% width;*/
+    nav.sidebar li {
+        width: 100%;
+    }
+
+    /* Move nav to full on mouse over*/
+    nav.sidebar:hover{
+        margin-left: 0px;
+    }
+    /*for hiden things when navbar hidden*/
+    .forAnimate{
+        opacity: 0;
+    }
+}
+
+/* .....NavBar: Fully showing nav bar..... */
+
+@media (min-width: 1330px) {
+
+    /*Allow main to be next to Nav*/
+    .container-main{
+        width: calc(100% - 300px); /*keeps 100% minus nav size*/
+        margin-left: 300px;
+    }
+
+    /*Show all nav*/
+    nav.sidebar{
+        margin-left: 0px;
+        float: left;
+    }
+    /*Show hidden items on nav*/
+    nav.sidebar .forAnimate{
+        opacity: 1;
+    }
+}
+
+.addButton{
+    position: relative;
+    margin-top: 1.5rem;
+    width: 10rem;
+    height: 3rem;
+    margin-left: 0.5rem;
+}
+
+.deleteButton{
+    position: relative;
+    margin-top: 1.5rem;
+    width: 10rem;
+    height: 3rem;
+    margin-left: 0.5rem;
+}
+
+.listButton{
+    position: relative;
+    margin-top: 1.5rem;
+    width: 10rem;
+    height: 3rem;
+    margin-left: 0.5rem;
+}
+
+.toolsCust{
+    background-color: rgb(219, 219, 219);
+}

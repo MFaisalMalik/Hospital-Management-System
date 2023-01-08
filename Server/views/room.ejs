@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+<body>
+    <% if (message == 'roommain') {%>
+
+    <%- include('./partials/nav.ejs', key) %>
+    <div class="container toolsCust">
+        <!-- NAVBAR FOR MANAGEMENT -->
+        <nav class="navbar bg-light"
+            style="margin-top: 2rem; height: 6rem; background-color: rgb(112, 131, 144); width: 100%;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" style="color: azure; ">Wards Information</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <% if (key == 'admin') {%>
+                    <li><button class="addButton"><a href="/room/addroom">+ Add</a></button></li>
+                    <li><button class="deleteButton"><a href="/room/deleteroom">- Delete</a></button></li>
+                    <% } %>
+                    <li><button class="listButton"><a href="/room/listroom">List</a></button></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <% } %>
+
+    <% if (type == 'delete') {%>
+    <form method="post" action="/room/deleteroom">
+        <input type="number" id="roomno" name="roomno" placeholder="Room No" style="font-family: 'Khand', sans-serif;"
+            required><br>
+        <button id="submit" name="submit" class="btn btn-primary">Submit</button><br>
+    </form>
+    <%} else if (type == 'add'){ %>
+    <form method="post" action="/room/addroom">
+        <input type="number" id="roomno" name="roomno" placeholder="Room no" style="font-family: 'Khand', sans-serif;"
+            required><br>
+        <input type="text" id="roomtype" name="roomtype" placeholder="Room type"
+            style="font-family: 'Khand', sans-serif;" required><br>
+        <button id="submit" name="submit" class="btn btn-primary">Submit</button><br>
+    </form>
+    <%} else if (type == 'list'){ %>
+    <%if (message.length > 0) {%>
+    <div style="margin-top: 4%;">
+        <table style="color: rgb(112, 131, 144);  font-size: 2rem; border-collapse: separate; border-spacing: 3rem 0;">
+            <thead>
+                <tr>
+                    <th>Room No</th>
+                    <th>Room Type</th>
+                    <th>Room Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% message.forEach( msg => {%>
+                <tr>
+                    <td><%= msg.roomno %></td>
+                    <td><%= msg.roomtype %></td>
+                    <td><%= msg.status %></td>
+                </tr>
+                <% }) %>
+
+            </tbody>
+        </table>
+    </div>
+    <% } else {%>
+    <p>No record of Rooms is available</p>
+    <% } %>
+
+    <% } %>
+
+    <% if (type !== 'list' && message !== 'roommain') {%>
+    <% if (message.length > 0) {%>
+    <p><%= message %></p>
+    <% } %>
+    <% } %>
+
+</body>
+
+</html>

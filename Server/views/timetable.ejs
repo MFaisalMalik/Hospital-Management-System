@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+<body>
+
+    <% if (type == 'timetablemain') {%>
+
+    <%- include('./partials/nav.ejs', key) %>
+    <div class="container toolsCust">
+        <!-- NAVBAR FOR MANAGEMENT -->
+        <nav class="navbar bg-light"
+            style="margin-top: 2rem; height: 6rem; background-color: rgb(112, 131, 144); width: 100%;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" style="color: azure; ">Timetable Information</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <% if (key == 'admin') {%>
+                    <li><button class="addButton"><a href="/timetable/addtimetable">Add</a></button></li>
+                    <li><button class="deleteButton"><a href="/timetable/deletetimetable">Delete</a></button></li>
+                    <li><button class="addButton"><a href="/timetable/updatetimetable">Update</a></button></li>
+                    <% } %>
+                    <li><button class="listButton"><a href="/timetable/listtimetable">List</a></button></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <%} else if (type == 'add') {%>
+    <form method="post" action="/timetable/addtimetable">
+        <input type="number" id="doctorid" name="doctorid" placeholder="Enter id of the doctor"
+            style="font-family: 'Khand', sans-serif;" required><br>
+
+        <h4>Monday</h4>
+        <input type="text" id="9-10" name="m910" placeholder="9am-10am" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="10-11" name="m1011" placeholder="10am-11am" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="11-12" name="m1112" placeholder="11am-12pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="12-1" name="m121" placeholder="12pm-1pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="1-2" name="m12" placeholder="1pm-2pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="2-3" name="m23" placeholder="2pm-3pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="3-4" name="m34" placeholder="3pm-4pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="4-5" name="m45" placeholder="4pm-5pm" style="font-family: 'Khand', sans-serif;">
+
+        <h4>Tuesday</h4>
+        <input type="text" id="9-10" name="t910" placeholder="9am-10am" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="10-11" name="t1011" placeholder="10am-11am" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="11-12" name="t1112" placeholder="11am-12pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="12-1" name="t121" placeholder="12pm-1pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="1-2" name="t12" placeholder="1pm-2pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="2-3" name="t23" placeholder="2pm-3pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="3-4" name="t34" placeholder="3pm-4pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="4-5" name="t45" placeholder="4pm-5pm" style="font-family: 'Khand', sans-serif;">
+
+        <h4>Wednesday</h4>
+        <input type="text" id="9-10" name="w910" placeholder="9am-10am" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="10-11" name="w1011" placeholder="10am-11am" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="11-12" name="w1112" placeholder="11am-12pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="12-1" name="w121" placeholder="12pm-1pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="1-2" name="w12" placeholder="1pm-2pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="2-3" name="w23" placeholder="2pm-3pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="3-4" name="w34" placeholder="3pm-4pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="4-5" name="w45" placeholder="4pm-5pm" style="font-family: 'Khand', sans-serif;">
+
+        <h4>Thursday</h4>
+        <input type="text" id="9-10" name="th910" placeholder="9am-10am" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="10-11" name="th1011" placeholder="10am-11am" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="11-12" name="th1112" placeholder="11am-12pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="12-1" name="th121" placeholder="12pm-1pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="1-2" name="th12" placeholder="1pm-2pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="2-3" name="th23" placeholder="2pm-3pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="3-4" name="th34" placeholder="3pm-4pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="4-5" name="th45" placeholder="4pm-5pm" style="font-family: 'Khand', sans-serif;">
+
+        <h4>Friday</h4>
+        <input type="text" id="9-10" name="f910" placeholder="9am-10am" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="10-11" name="f1011" placeholder="10am-11am" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="11-12" name="f1112" placeholder="11am-12pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="12-1" name="f121" placeholder="12pm-1pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="1-2" name="f12" placeholder="1pm-2pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="2-3" name="f23" placeholder="2pm-3pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="3-4" name="f34" placeholder="3pm-4pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="4-5" name="f45" placeholder="4pm-5pm" style="font-family: 'Khand', sans-serif;">
+
+        <h4>Saturday</h4>
+        <input type="text" id="9-10" name="s910" placeholder="9am-10am" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="10-11" name="s1011" placeholder="10am-11am" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="11-12" name="s1112" placeholder="11am-12pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="12-1" name="s121" placeholder="12pm-1pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="1-2" name="s12" placeholder="1pm-2pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="2-3" name="s23" placeholder="2pm-3pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="3-4" name="s34" placeholder="3pm-4pm" style="font-family: 'Khand', sans-serif;">
+        <input type="text" id="4-5" name="s45" placeholder="4pm-5pm" style="font-family: 'Khand', sans-serif;">
+
+        <br><button id="submit" name="submit" class="btn btn-primary">Submit</button><br>
+    </form>
+
+    <%} else if (type == 'update') {%>
+    <form method="post" action="/timetable/updatetimetable">
+        <input type="number" id="id" name="doctorid" placeholder="Doctor's id" style="font-family: 'Khand', sans-serif;"
+            required><br>
+        <label><input type="text" list="day" name="day" placeholder="Day" required /></label>
+        <datalist id="day">
+            <option value="Monday">
+            <option value="Tuesday">
+            <option value="Wednesday">
+            <option value="Thursday">
+            <option value="Friday">
+            <option value="Saturday">
+        </datalist><br>
+        <label><input type="text" list="time" name="time" placeholder="Time" required /></label>
+        <datalist id="time">
+            <option value="9am-10am">
+            <option value="10am-11am">
+            <option value="11am-12pm">
+            <option value="12pm-1pm">
+            <option value="1pm-2pm">
+            <option value="2pm-3pm">
+            <option value="3pm-4pm">
+            <option value="4pm-5pm">
+        </datalist><br>
+        <label><input type="text" list="slot" name="slot" placeholder="Updated slot" required /></label>
+        <datalist id="slot">
+            <option value="duty">
+            <option value="free">
+        </datalist><br>
+        <button id="submit" name="submit" class="btn btn-primary">Submit</button><br>
+    </form>
+
+    <%} else if (type == 'delete') {%>
+    <form method="post" action="/timetable/deletetimetable">
+        <input type="number" id="id" name="doctorid" placeholder="Enter doctor's id"
+            style="font-family: 'Khand', sans-serif;" required><br>
+        <button id="submit" name="submit" class="btn btn-primary">Submit</button><br>
+    </form>
+
+    <%} else if (type == 'list') {%>
+
+    <%if (results.length > 0) {%>
+    <% for (var i = 0; i < 6;  i++ ) { %>
+    <h4><%= day[i] %></h4>
+    <div style="margin-top: 4%;">
+        <table style="background-color: rgb(112, 131, 144); color: azure;  font-size: 2rem; border-collapse: separate; border-spacing: 3rem 0;">
+
+            <thead>
+                <tr>
+                    <th>Doctor Id</th>
+                    <th>9am-10am</th>
+                    <th>10am-11am</th>
+                    <th>11am-12pm</th>
+                    <th>12pm-1pm</th>
+                    <th>1pm-2pm</th>
+                    <th>2pm-3pm</th>
+                    <th>3pm-4pm</th>
+                    <th>4pm-5pm</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% results.forEach( rslt => {%>
+                <% if (rslt.day == day[i]) {%>
+                <tr>
+                    <td><%= rslt.doctorid %></td>
+                    <td><%= rslt.from9to10 %></td>
+                    <td><%= rslt.from10to11 %></td>
+                    <td><%= rslt.from11to12 %></td>
+                    <td><%= rslt.from12to1 %></td>
+                    <td><%= rslt.from1to2 %></td>
+                    <td><%= rslt.from2to3 %></td>
+                    <td><%= rslt.from3to4 %></td>
+                    <td><%= rslt.from4to5 %></td>
+                </tr>
+                <% } %>
+                <% }) %>
+
+            </tbody>
+        </table>
+    </div>
+    <% } %>
+
+    <% } else {%>
+    <p>No record is available</p>
+    <% } %>
+
+    <% } %>
+
+    <% if (type !== 'list' && message.length > 0) {%>
+    <p><%= message %></p>
+    <% } %>
+
+</body>
+
+</html>

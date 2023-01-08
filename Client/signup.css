@@ -1,0 +1,73 @@
+body{
+    background-color: rgb(0, 0, 19)
+}
+
+.login_field{
+    display: flex;
+    width: 22%;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    background: white;
+    height: 45rem;
+    padding: 4%;
+}
+
+.customd{
+    display: flex;
+    flex-direction: row;
+}
+
+#returnlogo{
+    width: 1px;
+    height: 1px;
+}
+
+#pass{
+    width: 250%;
+    border: none;
+    margin-left: -5rem;
+    height: 2rem;
+    font-size: 1.25rem;
+} 
+
+#email{
+    margin-top: 2rem;
+    width: 250%;
+    border: none;
+    margin-left: -5rem;
+    height: 2rem;
+    font-size: 1.25rem;
+}
+
+#cellno{
+    width: 250%;
+    border: none;
+    margin-left: -5rem;
+    height: 2rem;
+    font-size: 1.25rem;
+} 
+
+.signin_button{
+    margin-top: 3.5rem;
+    border-radius: 5px;
+    width: 200%;
+    margin-left:-3.2rem;
+    margin-bottom: 2rem;
+    height: 2rem;
+    background-color: rgb(209, 207, 207);
+}
+
+.signup_button{
+    margin-top: 3.5rem;
+    border-radius: 5px;
+    width: 200%;
+    margin-left:-3.2rem;
+    height: 2rem;
+    background-color: rgb(209, 207, 207);
+}
+
+.signinInstead{
+    color: #2363ade8;
+    text-decoration: none;
+}

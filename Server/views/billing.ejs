@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+<body>
+
+    <% if (type == 'billingmain') {%>
+
+        <%- include('./partials/nav.ejs', key) %>
+        <div class="container toolsCust">
+            <!-- NAVBAR FOR MANAGEMENT -->
+            <nav class="navbar bg-light"
+                style="margin-top: 2rem; height: 6rem; background-color: rgb(112, 131, 144); width: 100%;">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#" style="color: azure; ">Billing Information</a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><button class="addButton"><a href="/billing/generateinbill">Inpatient</a></button></li>
+                        <li><button class="addButton"><a href="/billing/generateoutbill">Outpatient</a></button></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+    <%} else if (type == 'ingenerate'){ %>
+        <form method="post" action="/billing/ingeneratebill">
+            <input type="number" id="pid" name="pid" placeholder="Patient's Id" style="font-family: 'Khand', sans-serif;" required><br>
+            <input type="number" id="docfee" name="doctotal" placeholder="Hospital charges" style="font-family: 'Khand', sans-serif;" required><br>
+            <button id="submit" name="submit" class="btn btn-primary">Generate Bill</button><br>
+        </form> 
+    <%} else if (type == 'outgenerate'){ %>
+        <form method="post" action="/billing/outgeneratebill">
+            <input type="number" id="pid" name="pid" placeholder="Patient's Id" style="font-family: 'Khand', sans-serif;" required><br>
+            <input type="number" id="docfee" name="doctotal" placeholder="Doctor fee" style="font-family: 'Khand', sans-serif;" required><br>
+            <button id="submit" name="submit" class="btn btn-primary">Generate Bill</button><br>
+        </form>
+    <%} else if (type == 'printInBill'){ %>
+        <div style="margin-top: 4%;">
+            <table style="color: rgb(112, 131, 144);  font-size: 2rem; border-collapse: separate; border-spacing: 3rem 0;">
+                <thead>
+                    <tr>
+                        <th>Bill  no</th>
+                        <th>Patient id</th>
+                        <th>Medicine Charges</th>
+                        <th>Hospital Charges</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><%= results[0].billno %></td>
+                        <td><%= results[0].pid %></td>
+                        <td><%= results[0].medtotal %></td>
+                        <td><%= results[0].doctotal %></td>
+                        <td><%= total %></td>
+                    </tr>    
+                </tbody>
+            </table>
+        </div>    
+    <%} else if (type == 'printOutBill'){ %>
+        <div style="margin-top: 4%;">
+            <table style = "color: rgb(112, 131, 144);  font-size: 2rem; border-collapse: separate; border-spacing: 3rem 0;">
+                <thead>
+                    <tr>
+                        <th>Bill  no</th>
+                        <th>Patient Id</th>
+                        <th>Patient Name</th>
+                        <th>Patient Age</th>
+                        <th>Total Charges</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><%= results[0].billno %></td>                        
+                        <td><%= results[0].pid %></td>
+                        <td><%= results[0].name %></td>
+                        <td><%= results[0].age %></td>
+                        <td><%= results[0].doctotal %></td>
+                    </tr>    
+                </tbody>
+            </table>
+        </div>        
+    <% } %>
+
+    <% if ( message.length > 0) {%>
+        <p><%= message %></p>
+    <% } %>
+    
+</body>
+
+</html>

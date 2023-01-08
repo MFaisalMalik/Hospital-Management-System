@@ -1,0 +1,107 @@
+<!-- Top navbar -->
+<nav class="navbar navbar-default navbar-inverse" role="navigation"
+style="background-color: #00464f; margin-bottom: 0.5rem;">
+<div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="/home" class="navbar-brand"
+            style="font-family: 'Audiowide', cursive; color: #FFFFFF;">
+            THE HEALOGICS PAKISTAN
+        </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse nav-cust" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <!-- <li class="active"><a href="#">Link</a></li> -->
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #FFFFFF;">Contact
+                    via<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a target="__blank" href="https://mail.google.com/">Gmail</a></li>
+                    <li><a target="__blank" href="https://web.whatsapp.com/">Whatsapp</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#" onclick="showAlert(1)">Phone</a>
+
+                    </li>
+                    <li><a href="#" onclick="showAlert(0)">Fax</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="/logout" class="logout-link" target="__blank" style="color: #FFFFFF;">Log Out</a>
+            </li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>
+<!-- Top navbar -->
+
+<!-- Side-navbar -->
+<nav class="navbar navbar-m2p sidebar" role="navigation">
+<div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+            data-target="#bs-sidebar-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        </a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+        <ul class="nav navbar-nav" style="margin-top: 5rem;">
+            <% if (key == 'receptionist') {%>
+                <li>
+                    <a href="/appointment">Appointment Management</a>
+                </li>
+            <% } %>
+            <% if (key == 'pharmacist') {%>
+                <li>
+                    <a href="/pharmacy">Pharmacy control Module</a>
+                </li>
+            <% } %>
+            <% if (key !== 'pharmacist') {%>
+                <li>
+                    <a href="/doctor">Doctor Management</a>
+                </li>
+                <li>
+                    <a href="/inpatient">In-patient management</a>
+                </li>
+                <li>
+                    <a href="/outpatient">Out-patient management</a>
+                </li>
+            <% } %>
+            <% if (key == 'receptionist') {%>
+                <li>
+                    <a href="/billing">Billing Management</a>
+                </li>
+            <% } %>
+            <% if (key !== 'pharmacist') {%>
+                <li>
+                    <a href="/room">Wards Management</a>
+                </li>
+                <li>
+                    <a href="/timetable">Doctor's Timetable Management</a>
+                </li>
+            <% } %>
+            <!-- conversion of prescription wala kaam ka discuss krna hai -->
+            <li>
+                <a href="/home"><span>&#8592;</span> Return to homepage
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

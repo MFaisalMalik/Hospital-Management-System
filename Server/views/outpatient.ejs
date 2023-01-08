@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+<body>
+    <%- include('./partials/nav.ejs', key) %>
+    <div class="container toolsCust">
+        <!-- NAVBAR FOR MANAGEMENT -->
+        <nav class="navbar bg-light"
+            style="margin-top: 2rem; height: 6rem; background-color: rgb(112, 131, 144); width: 100%;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" style="color: azure; ">Out-Patient Information</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+        </nav>
+
+        <%if (message.length > 0) {%>
+        <div style="margin-top: 4%;">
+            <table
+                style="color: rgb(112, 131, 144);  font-size: 2rem; border-collapse: separate; border-spacing: 3rem 0;">
+                <thead style="border-collapse: collapse; background-color: rgb(194, 194, 194);">
+                    <tr>
+                        <th>PID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Doctor id</th>
+                        <th>Appointment day</th>
+                        <th>Appointment time</th>
+                        <th>Bill no</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% message.forEach( msg => {%>
+                    <tr>
+                        <td><%= msg.pid %></td>
+                        <td><%= msg.name %></td>
+                        <td style="text-align: center;"><%= msg.age %></td>
+                        <td style="text-align: center;"><%= msg.doctorid %></td>
+                        <td style="text-align: center;"><%= msg.appointday %></td>
+                        <td style="text-align: right;"><%= msg.appointtime %></td>
+                        <td style="text-align: right;"><%= msg.billno %></td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+        <% } else {%>
+        <p>No record of Patient is available</p>
+        <% } %>
+
+    </div>
+</body>
+
+</html>

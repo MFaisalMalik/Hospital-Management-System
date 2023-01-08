@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page- The Healogics Pakistan</title>
+    <link rel="stylesheet" href="signup.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display&family=Dosis:wght@300&family=EB+Garamond:wght@400;500&family=Khand:wght@300&family=Open+Sans:ital,wght@0,300;0,800;1,800&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Audiowide&family=DM+Serif+Display&family=Dosis:wght@300&family=EB+Garamond:wght@400;500&family=Khand:wght@300&family=Open+Sans:ital,wght@0,300;0,800;1,800&family=Sofia&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Audiowide&family=Bitter:wght@300;400&family=DM+Serif+Display&family=Dosis:wght@300&family=EB+Garamond:wght@400;500&family=Khand:wght@300&family=Open+Sans:ital,wght@0,300;0,800;1,800&family=Sofia&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="customd">
+        <div class="login_field">
+            <form method="post" action="/login">
+                <div id="signin_email">
+                    <input type="email" name="email" id="email" placeholder="E-mail" style="font-family: 'Khand', sans-serif;">
+                </div>
+                <div id="signin_pass">
+                    <input type="password" name="password" id="pass" placeholder="Password" style="font-family: 'Khand', sans-serif;">
+                </div>
+                <button id="submit" name="submit" class="btn btn-primary">Log in</button>
+            </form>
+
+            <% if (message.length > 0) {%>
+                <p><%= message %></p>
+            <% } %>
+        </div>
+        
+        <div class="head_sign" style="text-align: center; margin-top: 17rem; margin-left: 22rem;">
+            <a href="index.html" style="text-decoration: none;">
+                <h1 style="font-size: 4rem; font-family: 'Audiowide', cursive; margin: 0; color: azure;"> THE</h1> 
+                <h1 style="font-size: 4rem; font-family: 'Audiowide', cursive; margin: 0; color: azure;">HEALOGICS</h1>
+                <h1 style="font-size: 4rem; font-family: 'Audiowide', cursive; margin: 0; color: azure;">PAKISTAN</h1>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

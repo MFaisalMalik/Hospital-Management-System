@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+<body>
+
+    <% if (type == 'pharmacymain') {%>
+
+        <%- include('./partials/nav.ejs', key) %>
+        <div class="container toolsCust">
+            <!-- NAVBAR FOR MANAGEMENT -->
+            <nav class="navbar bg-light"
+                style="margin-top: 2rem; height: 6rem; background-color: rgb(112, 131, 144); width: 100%;">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#" style="color: azure; ">Medical Items Information</a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><button class="addButton"><a href="/pharmacy/addstock">Stock</a></button></li>
+                        <li><button class="deleteButton"><a href="/pharmacy/sellmedicine">Sell</a></button></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+    <%} else if (type == 'add'){ %>
+        <form method="post" action="/pharmacy/addstock">
+            <input type="text" id="name" name="name" placeholder="Name" style="font-family: 'Khand', sans-serif;" required><br>
+            <input type="number" id="price" name="price" placeholder="Price" style="font-family: 'Khand', sans-serif;" required><br>
+            <input type="number" id="quantity" name="quantity" placeholder="Quantity" style="font-family: 'Khand', sans-serif;" required><br>
+            <button id="submit" name="submit" class="btn btn-primary">Submit</button><br>
+        </form>       
+    
+    <%} else if (type == 'sell'){ %>
+        <form method="post" action="/pharmacy/sellmedicine">
+            <input type="number" id="mid" name="mid" placeholder="Medicine Id" style="font-family: 'Khand', sans-serif;" required><br>
+            <input type="number" id="pid" name="pid" placeholder="Patient Id" style="font-family: 'Khand', sans-serif;" required><br>
+            <input type="number" id="quantity" name="quantity" placeholder="Quantity" style="font-family: 'Khand', sans-serif;" required><br>
+            <button id="submit" name="submit" class="btn btn-primary">Submit</button><br>
+        </form>
+    <% } %>
+
+    <% if ( message.length > 0) {%>
+        <p><%= message %></p>
+    <% } %>
+    
+</body>
+
+</html>

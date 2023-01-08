@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+<body>
+
+    <% if (type == 'appointmentmain') {%>
+
+        <%- include('./partials/nav.ejs', key) %>
+        <div class="container toolsCust">
+            <!-- NAVBAR FOR MANAGEMENT -->
+            <nav class="navbar bg-light"
+                style="margin-top: 2rem; height: 6rem; background-color: rgb(112, 131, 144); width: 100%;">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#" style="color: azure; ">Appointment Information</a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><button class="addButton"><a href="/appointment/takeappointment">Take</a></button></li>
+                        <li><button class="deleteButton"><a href="/appointment/cancelappointment">Cancel</a></button></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    
+    <%} else if (type == 'take') {%>
+        <form method="post" action="/appointment/takeappointment">
+            <input type="text" id="name" name="name" placeholder="Patient's name" style="font-family: 'Khand', sans-serif;" required><br>
+            <input type="number" id="age" name="age" placeholder="Patient's age" style="font-family: 'Khand', sans-serif;" required><br>    
+            <input type="number" id="id" name="doctorid" placeholder="Doctor's id" style="font-family: 'Khand', sans-serif;" required><br>
+            <label><input type="text" list="day" name="day" placeholder="Day" required/></label>
+                <datalist id="day">
+                    <option value="Monday">
+                    <option value="Tuesday">
+                    <option value="Wednesday">
+                    <option value="Thursday">
+                    <option value="Friday">
+                    <option value="Saturday">
+                </datalist><br>
+            <label><input type="text" list="time" name="time" placeholder="Time" required/></label>
+                <datalist id="time">
+                    <option value="9am-10am">
+                    <option value="10am-11am">
+                    <option value="11am-12pm">
+                    <option value="12pm-1pm">
+                    <option value="1pm-2pm">
+                    <option value="2pm-3pm">
+                    <option value="3pm-4pm">
+                    <option value="4pm-5pm">    
+                </datalist><br>
+            <button id="submit" name="submit" class="btn btn-primary">Submit</button><br>
+        </form> 
+
+    <%} else if (type == 'cancel') {%>
+        <form method="post" action="/appointment/cancelappointment">
+            <input type="number" id="id" name="pid" placeholder="Enter Patients's id" style="font-family: 'Khand', sans-serif;" required><br>
+            <button id="submit" name="submit" class="btn btn-primary">Submit</button><br>
+        </form>
+
+    <%}%>
+
+    <% if (message.length > 0) {%>
+        <p><%= message %></p>
+    <% } %>
+    
+</body>
+
+</html>

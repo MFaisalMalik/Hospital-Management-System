@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+<body>
+    <% if (message == 'inpatientmain') {%>
+
+    <%- include('./partials/nav.ejs', key) %>
+    <div class="container toolsCust">
+        <!-- NAVBAR FOR MANAGEMENT -->
+        <nav class="navbar bg-light"
+            style="margin-top: 2rem; height: 6rem; background-color: rgb(112, 131, 144); width: 100%;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" style="color: azure; ">In-patient Information</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <% if (key == 'receptionist') {%>
+                    <li><button class="addButton"><a href="/inpatient/addinpatient">+ Add</a></button></li>
+                    <li><button class="deleteButton"><a href="/inpatient/deleteinpatient">- Delete</a></button></li>
+                    <% } %>
+                    <li><button class="listButton"><a href="/inpatient/listinpatient">List</a></button></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <% } %>
+
+    <% if (type == 'delete') {%>
+    <form method="post" action="/inpatient/deleteinpatient">
+        <input type="number" id="pid" name="pid" placeholder="Patient Id" style="font-family: 'Khand', sans-serif;"
+            required><br>
+        <button id="submit" name="submit" class="btn btn-primary">Submit</button><br>
+    </form>
+    <%} else if (type == 'add'){ %>
+    <form method="post" action="/inpatient/addinpatient">
+        <input type="number" id="pid" name="pid" placeholder="Patient Id" style="font-family: 'Khand', sans-serif;"
+            required><br>
+        <input type="text" id="name" name="name" placeholder="Patient Name" style="font-family: 'Khand', sans-serif;"
+            required><br>
+        <input type="text" id="age" name="age" placeholder="Patient Age" style="font-family: 'Khand', sans-serif;"
+            required><br>
+        <input type="text" id="disease" name="disease" placeholder="Disease" style="font-family: 'Khand', sans-serif;"
+            required><br>
+        <input type="text" id="roomno" name="roomno" placeholder="Room number" style="font-family: 'Khand', sans-serif;"
+            required><br>
+        <input type="date" id="dateOfAdm" name="dateOfAdm" placeholder="Date of Admission"
+            style="font-family: 'Khand', sans-serif;"><br>
+        <input type="date" id="dateOfDis" name="dateOfDis" placeholder="Date of Discharge"
+            style="font-family: 'Khand', sans-serif;"><br>
+        <input type="number" id="doctorid" name="doctorid" placeholder="Doctor's Id"
+            style="font-family: 'Khand', sans-serif;"><br>
+        <button id="submit" name="submit" class="btn btn-primary">Submit</button><br>
+    </form>
+    <%} else if (type == 'list'){ %>
+    <%if (message.length > 0) {%>
+    <div style="margin-top: 4%;">
+        <table style="color: rgb(112, 131, 144);  font-size: 2rem; border-collapse: separate; border-spacing: 3rem 0;">
+            <thead>
+                <tr>
+                    <th>Patient Id</th>
+                    <th>Room Number</th>
+                    <th>Date Of Admit</th>
+                    <th>Date Of Discharge</th>
+                    <th>Bill Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% message.forEach( msg => {%>
+                <tr>
+                    <td><%= msg.pid %></td>
+                    <td><%= msg.roomno %></td>
+                    <td><%= msg.dateOfAdm %></td>
+                    <td><%= msg.dateOfDis %></td>
+                    <td><%= msg.billno %></td>
+                </tr>
+                <% }) %>
+
+            </tbody>
+        </table>
+    </div>
+    <% } else {%>
+    <p>No record of Patient is available</p>
+    <% } %>
+
+    <% } %>
+
+    <% if (type !== 'list' && message !== 'inpatientmain') {%>
+    <% if (message.length > 0) {%>
+    <p><%= message %></p>
+    <% } %>
+    <% } %>
+
+</body>
+
+</html>
